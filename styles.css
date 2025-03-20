@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Header */
+header {
+    padding: 20px;
+    text-align: center;
+    background: #2c2c2c;
+}
+
+/* Title */
+h1 {
+    font-size: 36px;
+    color: #00ffcc;
+}
+
+/* Subtitle */
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Section */
+section {
+    padding: 40px;
+}
+
+/* Portfolio */
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    background: #3c3c3c;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+/* Skill Section */
+.skills {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+/* Skill Item */
+.skill-item {
+    background: #444444;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+/* Testimonial Section */
+.testimonial {
+    margin-top: 40px;
+    font-style: italic;
+}
+
+/* Footer */
+footer {
+    background: #2c2c2c;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Button */
+button {
+    background: #00ffcc;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00ccaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .portfolio {
+        flex-direction: column;
+    }
+
+    .skills {
+        flex-direction: column;
+    }
+}
