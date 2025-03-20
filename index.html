@@ -4,78 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuga R - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        header {
+            background-color: #121212;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            display: inline-block;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .hero h2 {
+            color: #00ff66;
+        }
+
+        .hero h3 {
+            color: #00c8ff;
+        }
+
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .social a {
+            color: white;
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .skills, .portfolio, .why-me, .testimonials, .contact {
+            padding: 50px 0;
+        }
+
+        .skill-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .skill {
+            background: #292929;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .portfolio-item {
+            background: #292929;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .why-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .why {
+            background: #292929;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact input, .contact textarea {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .contact button {
+            background-color: #00c8ff;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #121212;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Yuga R</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Keahlian</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
-                <li><a href="#testimonials">Testimoni</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Yuga R</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#">Tentang</a></li>
+                    <li><a href="#">Keahlian</a></li>
+                    <li><a href="#">Why Me</a></li>
+                    <li><a href="#">Testimoni</a></li>
+                    <li><a href="#">Portofolio</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="intro">
-        <h2>Halo!</h2>
-        <p>Saya Mochammad Yuga Ranapraja, menghadirkan solusi desain yang estetis dan user-friendly.</p>
-        <div class="social-icons">
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
+    <section class="hero">
+        <div class="container">
+            <h2>Halo!</h2>
+            <h3>Saya Mochammad Yuga Ranapraja, menghadirkan solusi desain yang estestis dan user-friendly.</h3>
+            <div class="profile">
+                <img src="https://via.placeholder.com/100" alt="Foto Profil">
+                <p>Mahasiswa Informatika di Universitas Siliwangi yang memiliki passion dalam menciptakan pengalaman digital yang memudahkan dan menyenangkan.</p>
+            </div>
+            <div class="social">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </section>
 
-    <section id="portfolio">
-        <h2>Portofolio</h2>
-        <div class="portfolio-item">
-            <h3>Bolder Landingpage</h3>
-            <a href="#">Lihat lebih</a>
+    <section class="skills">
+        <div class="container">
+            <h2>Apa yang bisa saya lakukan?</h2>
+            <div class="skill-list">
+                <div class="skill">
+                    <h3>Web Development</h3>
+                    <p>Desain UI/UX, Desain Responsif</p>
+                </div>
+                <div class="skill">
+                    <h3>UX Research</h3>
+                    <p>Wireframing, Prototyping</p>
+                </div>
+            </div>
         </div>
-        <div class="portfolio-item">
-            <h3>Kerja Mantul Education Management</h3>
-            <a href="#">Lihat lebih</a>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2>Portofolio</h2>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300" alt="Project 1">
+                <h3>Bolder Landingpage</h3>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://via.placeholder.com/300" alt="Project 2">
+                <h3>Kerja Mantul Education Management</h3>
+            </div>
         </div>
     </section>
 
-    <section id="about">
-        <h2>Mengapa saya?</h2>
-        <div class="about-item">Inovatif & Kreatif</div>
-        <div class="about-item">Detail-Oriented</div>
-        <div class="about-item">Kolaboratif</div>
+    <section class="why-me">
+        <div class="container">
+            <h2>Mengapa saya?</h2>
+            <div class="why-list">
+                <div class="why">
+                    <h3>Inovatif & Kreatif</h3>
+                    <p>Menyediakan desain unik dan sesuai kebutuhan pengguna.</p>
+                </div>
+                <div class="why">
+                    <h3>Detail-Oriented</h3>
+                    <p>Memastikan setiap elemen berfungsi optimal.</p>
+                </div>
+                <div class="why">
+                    <h3>Kolaboratif</h3>
+                    <p>Bekerja sama dengan tim secara efektif.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="testimonials">
-        <h2>Apa kata mereka?</h2>
-        <blockquote>
-            "Desainnya modern dan mudah digunakan." - Dian P., CEO StartUpTech
-        </blockquote>
-        <blockquote>
-            "Yuga sangat komunikatif dan mampu menerjemahkan ide menjadi antarmuka yang menarik." - Rina K., Manajer Proyek
-        </blockquote>
+    <section class="testimonials">
+        <div class="container">
+            <h2>Apa kata mereka?</h2>
+            <blockquote>"Desainnya modern dan mudah digunakan. Proses kerja sangat profesional!"</blockquote>
+            <p>- Dian P., CEO StartUpTech</p>
+            <blockquote>"Yuga sangat komunikatif dan mampu menerjemahkan ide menjadi antarmuka yang menarik."</blockquote>
+            <p>- Rina K., Manajer Proyek</p>
+        </div>
     </section>
 
-    <section id="contact">
-        <h2>Mari bekerja sama!</h2>
-        <form>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Pesan" required></textarea>
-            <button type="submit">Kirim</button>
-        </form>
+    <section class="contact">
+        <div class="container">
+            <h2>Mari bekerja sama!</h2>
+            <form>
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Pesan"></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+        </div>
     </section>
 
     <footer>
-        <p>Hak Cipta &copy; 2025 Mochammad Yuga Ranapraja</p>
-        <div class="footer-links">
-            <a href="#">Beranda</a>
-            <a href="#">Portofolio</a>
-            <a href="#">Kontak</a>
+        <div class="container">
+            <p>Hak Cipta © 2025 Mochammad Yuga Ranapraja.</p>
         </div>
     </footer>
+
 </body>
 </html>
