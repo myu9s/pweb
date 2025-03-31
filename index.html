@@ -4,242 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuga R - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: white;
+        /* Reset CSS */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        header {
+        body {
             background-color: #121212;
-            padding: 20px;
-            text-align: center;
+            color: white;
+        }
+
+        /* HEADER */
+        header {
+            background: #1a1a1a;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 100;
         }
 
         header h1 {
-            display: inline-block;
-            color: white;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .hero h2 {
             color: #00ff66;
         }
 
-        .hero h3 {
-            color: #00c8ff;
-        }
-
-        .profile img {
-            width: 100px;
-            border-radius: 50%;
-        }
-
-        .social a {
+        /* NAVIGATION */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+            background: none;
+            border: none;
             color: white;
-            font-size: 20px;
-            margin: 10px;
         }
 
-        .skills, .portfolio, .why-me, .testimonials, .contact {
-            padding: 50px 0;
-        }
-
-        .skill-list {
+        nav {
             display: flex;
-            justify-content: center;
         }
 
-        .skill {
-            background: #292929;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #00ff66;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #1a1a1a;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 10px 0;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: #1a1a1a;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            color: #00ff66;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ccc;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
         }
 
         .portfolio-item {
-            background: #292929;
+            background: #1a1a1a;
             padding: 20px;
             margin: 10px;
-            border-radius: 10px;
-        }
-
-        .why-list {
-            display: flex;
-            justify-content: center;
-        }
-
-        .why {
-            background: #292929;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 10px;
-        }
-
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .contact input, .contact textarea {
-            width: 50%;
-            padding: 10px;
-            margin: 10px 0;
             border-radius: 5px;
-            border: none;
+            display: inline-block;
         }
 
-        .contact button {
-            background-color: #00c8ff;
-            padding: 10px 20px;
-            border: none;
-            color: white;
+        .portfolio-item img {
+            width: 100%;
+            max-width: 400px;
             border-radius: 5px;
         }
 
+        /* FOOTER */
         footer {
-            background-color: #121212;
-            padding: 20px;
+            background: #1a1a1a;
             text-align: center;
+            padding: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER -->
     <header>
-        <div class="container">
-            <h1>Yuga R</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Beranda</a></li>
-                    <li><a href="#">Tentang</a></li>
-                    <li><a href="#">Keahlian</a></li>
-                    <li><a href="#">Why Me</a></li>
-                    <li><a href="#">Testimoni</a></li>
-                    <li><a href="#">Portofolio</a></li>
-                    <li><a href="#">Kontak</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Yuga R</h1>
+        <button class="hamburger"><i class="fas fa-bars"></i></button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h2>Halo!</h2>
-            <h3>Saya Mochammad Yuga Ranapraja, menghadirkan solusi desain yang estestis dan user-friendly.</h3>
-            <div class="profile">
-                <img src="https://via.placeholder.com/100" alt="Foto Profil">
-                <p>Mahasiswa Informatika di Universitas Siliwangi yang memiliki passion dalam menciptakan pengalaman digital yang memudahkan dan menyenangkan.</p>
-            </div>
-            <div class="social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <h2>Halo! Saya Mochammad Yuga Ranapraja</h2>
+        <p>Menghadirkan solusi desain yang estetis dan user-friendly.</p>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <h2>Portofolio</h2>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400" alt="Project 1">
+            <p>Bolder Landingpage</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="https://via.placeholder.com/400" alt="Project 2">
+            <p>Kerja Mantul Education Management</p>
         </div>
     </section>
 
-    <section class="skills">
-        <div class="container">
-            <h2>Apa yang bisa saya lakukan?</h2>
-            <div class="skill-list">
-                <div class="skill">
-                    <h3>Web Development</h3>
-                    <p>Desain UI/UX, Desain Responsif</p>
-                </div>
-                <div class="skill">
-                    <h3>UX Research</h3>
-                    <p>Wireframing, Prototyping</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="portfolio">
-        <div class="container">
-            <h2>Portofolio</h2>
-            <div class="portfolio-item">
-                <img src="https://via.placeholder.com/300" alt="Project 1">
-                <h3>Bolder Landingpage</h3>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://via.placeholder.com/300" alt="Project 2">
-                <h3>Kerja Mantul Education Management</h3>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-me">
-        <div class="container">
-            <h2>Mengapa saya?</h2>
-            <div class="why-list">
-                <div class="why">
-                    <h3>Inovatif & Kreatif</h3>
-                    <p>Menyediakan desain unik dan sesuai kebutuhan pengguna.</p>
-                </div>
-                <div class="why">
-                    <h3>Detail-Oriented</h3>
-                    <p>Memastikan setiap elemen berfungsi optimal.</p>
-                </div>
-                <div class="why">
-                    <h3>Kolaboratif</h3>
-                    <p>Bekerja sama dengan tim secara efektif.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="testimonials">
-        <div class="container">
-            <h2>Apa kata mereka?</h2>
-            <blockquote>"Desainnya modern dan mudah digunakan. Proses kerja sangat profesional!"</blockquote>
-            <p>- Dian P., CEO StartUpTech</p>
-            <blockquote>"Yuga sangat komunikatif dan mampu menerjemahkan ide menjadi antarmuka yang menarik."</blockquote>
-            <p>- Rina K., Manajer Proyek</p>
-        </div>
-    </section>
-
-    <section class="contact">
-        <div class="container">
-            <h2>Mari bekerja sama!</h2>
-            <form>
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Pesan"></textarea>
-                <button type="submit">Kirim</button>
-            </form>
-        </div>
-    </section>
-
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>Hak Cipta © 2025 Mochammad Yuga Ranapraja.</p>
-        </div>
+        <p>Hak Cipta © 2025 Mochammad Yuga Ranapraja.</p>
     </footer>
+
+    <script>
+        // HAMBURGER MENU TOGGLE
+        document.querySelector(".hamburger").addEventListener("click", function() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+
+        // MENANDATANGANI NAVIGASI AKTIF
+        document.querySelectorAll(".nav-link").forEach(link => {
+            link.addEventListener("click", function() {
+                document.querySelectorAll(".nav-link").forEach(nav => nav.classList.remove("active"));
+                this.classList.add("active");
+                document.querySelector(".nav-links").classList.remove("active");
+            });
+        });
+    </script>
 
 </body>
 </html>
