@@ -4,203 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yuga R - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Reset CSS */
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: white;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            transition: all 0.3s ease-in-out;
         }
 
-        body {
-            background-color: #121212;
-            color: white;
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        /* HEADER */
         header {
-            background: #1a1a1a;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
+            background-color: #121212;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
             top: 0;
-            left: 0;
-            z-index: 100;
+            z-index: 1000;
         }
 
         header h1 {
-            color: #00ff66;
-        }
-
-        /* NAVIGATION */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 24px;
-            background: none;
-            border: none;
+            display: inline-block;
             color: white;
         }
 
-        nav {
-            display: flex;
-        }
-
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            padding: 0;
         }
 
-        .nav-links li {
+        nav ul li {
+            display: inline;
             margin: 0 15px;
         }
 
-        .nav-links a {
+        nav ul li a {
             text-decoration: none;
             color: white;
+            padding: 5px 10px;
             transition: 0.3s;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        nav ul li a:hover, nav ul li a.active {
             color: #00ff66;
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: #1a1a1a;
-                padding: 20px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                text-align: center;
-                margin: 10px 0;
-            }
-        }
-
-        /* HERO SECTION */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background: #1a1a1a;
         }
 
         .hero h2 {
-            font-size: 32px;
             color: #00ff66;
         }
 
-        .hero p {
-            font-size: 18px;
-            margin-top: 10px;
-            color: #ccc;
+        .hero h3 {
+            color: #00c8ff;
         }
 
-        /* PORTFOLIO */
-        .portfolio {
-            padding: 50px 20px;
-            text-align: center;
+        .profile img {
+            width: 100px;
+            border-radius: 50%;
         }
 
-        .portfolio h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        .social a {
+            color: white;
+            font-size: 20px;
+            margin: 10px;
         }
 
-        .portfolio-item {
-            background: #1a1a1a;
+        .skills, .portfolio, .why-me, .testimonials, .contact {
+            padding: 50px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.8s;
+        }
+
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-list, .why-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .skill, .why, .portfolio-item {
+            background: #292929;
             padding: 20px;
             margin: 10px;
-            border-radius: 5px;
-            display: inline-block;
+            border-radius: 10px;
         }
 
-        .portfolio-item img {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 5px;
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* FOOTER */
+        .contact input, .contact textarea {
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .contact button {
+            background-color: #00c8ff;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
         footer {
-            background: #1a1a1a;
-            text-align: center;
+            background-color: #121212;
             padding: 20px;
-            margin-top: 20px;
+            text-align: center;
+        }
+
+        .notification {
+            display: none;
+            background: #00ff66;
+            color: black;
+            padding: 15px;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            border-radius: 5px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 28px;
+            color: white;
+        }
+
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #121212;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Sembunyikan menu desktop */
+            }
+            .hamburger {
+                display: block; /* Tampilkan hamburger pada versi mobile */
+            }
+            .nav-menu.show {
+                display: flex; /* Tampilkan menu saat hamburger diklik */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
-        <h1>Yuga R</h1>
-        <button class="hamburger"><i class="fas fa-bars"></i></button>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#hero" class="nav-link active">Beranda</a></li>
-                <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
-                <li><a href="#contact" class="nav-link">Kontak</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Yuga R</h1>
+            <div class="hamburger" id="hamburger">&#9776;</div> <!-- Hamburger Button -->
+            <nav>
+                <ul>
+                    <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                    <li><a href="#skills" class="nav-link">Keahlian</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
+                    <li><a href="#why-me" class="nav-link">Why Me</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimoni</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link">Beranda</a>
+                <a href="#skills" class="nav-link">Keahlian</a>
+                <a href="#portfolio" class="nav-link">Portofolio</a>
+                <a href="#why-me" class="nav-link">Why Me</a>
+                <a href="#testimonials" class="nav-link">Testimoni</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </div>
+        </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="hero">
-        <h2>Halo! Saya Mochammad Yuga Ranapraja</h2>
-        <p>Menghadirkan solusi desain yang estetis dan user-friendly.</p>
+    <section class="hero container" id="hero">
+        <h2>Halo!</h2>
+        <h3>Saya Mochammad Yuga Ranapraja, menghadirkan solusi desain yang estestis dan user-friendly.</h3>
+        <div class="profile">
+            <img src="https://via.placeholder.com/100" alt="Foto Profil">
+            <p>Mahasiswa Informatika yang memiliki passion dalam pengalaman digital yang memudahkan dan menyenangkan.</p>
+        </div>
+        <div class="social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+        </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="portfolio">
+    <section class="skills container" id="skills">
+        <h2>Apa yang bisa saya lakukan?</h2>
+        <div class="skill-list">
+            <div class="skill">
+                <h3>Web Development</h3>
+                <p>Desain UI/UX, Desain Responsif</p>
+            </div>
+            <div class="skill">
+                <h3>UX Research</h3>
+                <p>Wireframing, Prototyping</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio container" id="portfolio">
         <h2>Portofolio</h2>
         <div class="portfolio-item">
-            <img src="https://via.placeholder.com/400" alt="Project 1">
-            <p>Bolder Landingpage</p>
+            <h3>Bolder Landingpage</h3>
         </div>
         <div class="portfolio-item">
-            <img src="https://via.placeholder.com/400" alt="Project 2">
-            <p>Kerja Mantul Education Management</p>
+            <h3>Kerja Mantul Education Management</h3>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <section class="why-me container" id="why-me">
+        <h2>Mengapa saya?</h2>
+        <div class="why-list">
+            <div class="why"><h3>Inovatif & Kreatif</h3></div>
+            <div class="why"><h3>Detail-Oriented</h3></div>
+            <div class="why"><h3>Kolaboratif</h3></div>
+        </div>
+    </section>
+
+    <section class="contact container" id="contact">
+        <h2>Kontak</h2>
+        <form id="contactForm">
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Pesan" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <div class="notification" id="notification">Pesan berhasil dikirim!</div>
+
     <footer>
         <p>Hak Cipta © 2025 Mochammad Yuga Ranapraja.</p>
     </footer>
 
     <script>
-        // HAMBURGER MENU TOGGLE
-        document.querySelector(".hamburger").addEventListener("click", function() {
-            document.querySelector(".nav-links").classList.toggle("active");
+        // Toggle menu hamburger
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
         });
 
-        // MENANDATANGANI NAVIGASI AKTIF
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.addEventListener("click", function() {
-                document.querySelectorAll(".nav-link").forEach(nav => nav.classList.remove("active"));
-                this.classList.add("active");
-                document.querySelector(".nav-links").classList.remove("active");
+        // Animasi Scroll
+        document.addEventListener("scroll", function() {
+            let sections = document.querySelectorAll(".skills, .portfolio, .why-me, .contact");
+            sections.forEach((section) => {
+                if (section.getBoundingClientRect().top < window.innerHeight - 100) {
+                    section.classList.add("visible");
+                }
             });
+        });
+
+        // Navigasi Aktif
+        let navLinks = document.querySelectorAll(".nav-link");
+        window.addEventListener("scroll", () => {
+            let fromTop = window.scrollY;
+            navLinks.forEach(link => {
+                let section = document.querySelector(link.getAttribute("href"));
+                if (section.offsetTop <= fromTop + 100 && section.offsetTop + section.offsetHeight > fromTop) {
+                    navLinks.forEach(l => l.classList.remove("active"));
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // Form Kontak
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("notification").style.display = "block";
+            setTimeout(() => document.getElementById("notification").style.display = "none", 3000);
         });
     </script>
 
